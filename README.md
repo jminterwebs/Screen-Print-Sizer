@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Proof of concept for a management system for managing artistic assets for a screen printer. App will manage Art references files, as well as, production art made from said references. Sale reps. will also be able to more easily manage previous artwork of clients to better prevent reordering same art work.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+When placing orders artwork will be validated by size, color, and location
