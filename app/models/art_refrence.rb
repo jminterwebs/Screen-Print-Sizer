@@ -1,0 +1,2 @@
+class ArtRefrence < ApplicationRecord
+end
