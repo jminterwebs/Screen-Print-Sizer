@@ -1,0 +1,2 @@
+class Ink < ApplicationRecord
+end
