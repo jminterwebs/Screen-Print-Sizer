@@ -1,0 +1,2 @@
+class ArtProduction < ApplicationRecord
+end
