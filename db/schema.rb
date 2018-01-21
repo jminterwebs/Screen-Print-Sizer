@@ -10,13 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180107025307) do
+ActiveRecord::Schema.define(version: 20180109002024) do
+
+  create_table "art_productions", force: :cascade do |t|
+    t.string   "art_production_code"
+    t.integer  "color_amount"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "art_refrences", force: :cascade do |t|
+    t.integer  "art_color_amount"
+    t.string   "art_ref_code"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "decoration_types", force: :cascade do |t|
+    t.string   "color"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dimensions", force: :cascade do |t|
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "garments", force: :cascade do |t|
     t.string   "style_code"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "inks", force: :cascade do |t|
+    t.string   "color_code"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "location_code"
+    t.string   "name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end
