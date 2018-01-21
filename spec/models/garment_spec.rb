@@ -6,7 +6,7 @@ describe Garment, type: :model do
       described_class.new(style_code: "207", name: "Classic Tee Shirt")
     }
 
-it 'is valid with vlid attirubutes' do
+it 'is valid with valid attirubutes' do
   expect(subject).to be_valid
 end
 
