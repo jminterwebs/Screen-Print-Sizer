@@ -1,0 +1,2 @@
+class GarmentsLocation < ApplicationRecord
+end
