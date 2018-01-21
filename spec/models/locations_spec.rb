@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-describe Location do
+describe Location, type: :model do
+  subject { described_class.new(location_code: "FC", name: "Full Chest")}
 
-  it "Locations have a code and a Name" do
-    expect {Location.create(:location_code => "FC", :name => "Full Chest")}.to_not raise_error
+  it "should be valid with valid attirubutes" do
+    expect(subject).to be_valid
   end
-  
+
 end
