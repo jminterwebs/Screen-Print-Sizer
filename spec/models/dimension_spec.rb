@@ -1,11 +1,15 @@
 require 'rails_helper'
 
-describe Dimension do
+describe Dimension, type: :model do
+  subject { described_class.new(width: 12, height: 12)}
 
-  it "Demensions are set to width and height based on location" do
+  it "should have valid attirubutes" do
+    expect(subject).to be_valid
+  end
 
-    expect{Demension.create(:width => 12.5, :height => 15)}
-
+  it 'should not be valid without a height' do
+    subject.height = nil
+    expect(subject).to_not be_valid
   end
 
 end
