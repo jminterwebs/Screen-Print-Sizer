@@ -1,13 +1,14 @@
 require 'rails_helper'
 
 describe Location, type: :model do
-  subject { described_class.new(location_code: "FC", name: "Full Chest")}
+  let(:dimension) {Dimension.new(height: 12, width: 12)}
+  subject { described_class.new(location_code: "FC", name: "Full Chest", dimension: dimension)}
 
 
   describe "Assications" do
     it {should have_many(:garments).through(:garmentsLocation)}
 
-    it {should have_many(:dimensions).through(:locationsDimension)}
+    it {should belong_to :dimension}
   end
 
   describe "Validations" do

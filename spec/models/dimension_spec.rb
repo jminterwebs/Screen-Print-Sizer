@@ -4,7 +4,7 @@ describe Dimension, type: :model do
   subject { described_class.new(width: 12, height: 12)}
 
   describe "Assications" do
-      it {should have_many(:locations).through(:locationsDimension)}
+      it {should have_many(:locations)}
   end
 
 
