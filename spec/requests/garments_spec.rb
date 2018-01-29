@@ -12,6 +12,10 @@ RSpec.describe "Garments", type: :request do
       expect(json).to_not be_empty
       expect(json.size).to eq(10)
     end
+
+    it 'returns a 200 status code' do
+      expect(response).to have_http_status(200)
+    end
   end
 
   describe "Get /garments/:id" do
@@ -19,6 +23,10 @@ RSpec.describe "Garments", type: :request do
     it "returns one garment" do
      expect(json).to_not be_empty
      expect(json['id']).to eq(garment_id)
+   end
+
+   it 'returns a 200 status code' do
+       expect(response).to have_http_status(200)
    end
   end
 end
