@@ -20,13 +20,30 @@ RSpec.describe "Garments", type: :request do
 
   describe "Get /garments/:id" do
     before { get "/garments/#{garment_id}"}
-    it "returns one garment" do
-     expect(json).to_not be_empty
-     expect(json['id']).to eq(garment_id)
+
+    context "when Record exists" do
+      it "returns one garment" do
+       expect(json).to_not be_empty
+       expect(json['id']).to eq(garment_id)
+     end
+
+     it 'returns a 200 status code' do
+         expect(response).to have_http_status(200)
+     end
    end
 
-   it 'returns a 200 status code' do
-       expect(response).to have_http_status(200)
+   context "when record does not exists" do
+     let(:garment_id) {100}
+
+     it 'returns status code 404' do
+        expect(response).to have_http_status(404)
+      end
+
+     it 'returns a not found message' do
+        expect(response.body).to match(/Couldn't find Garment/)
+     end
    end
+
+
   end
 end
