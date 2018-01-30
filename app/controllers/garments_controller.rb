@@ -46,6 +46,6 @@ class GarmentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def garment_params
-      params.fetch(:garment, {})
+      params.permit(:name, :style_code)
     end
 end
