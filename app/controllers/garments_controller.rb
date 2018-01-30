@@ -5,32 +5,24 @@ class GarmentsController < ApplicationController
   def index
     @garments = Garment.all
 
-    render json: @garments
+    json_response(@garments)
   end
 
   # GET /garments/1
   def show
-    render json: @garment
+    json_response(@garment)
   end
 
   # POST /garments
   def create
-    @garment = Garment.new(garment_params)
+    @garment = Garment.create!(garment_params)
+    json_response(@garment, :created)
 
-    if @garment.save
-      render json: @garment, status: :created, location: @garment
-    else
-      render json: @garment.errors, status: :unprocessable_entity
-    end
   end
 
   # PATCH/PUT /garments/1
   def update
-    if @garment.update(garment_params)
-      render json: @garment
-    else
-      render json: @garment.errors, status: :unprocessable_entity
-    end
+    @garment.update(garment_params)
   end
 
   # DELETE /garments/1
