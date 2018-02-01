@@ -13,6 +13,8 @@ Ink_colors
 Locations
   location_code:
   name:
+ belongs_to
+  dimension:
 
 Art_ref
   art_color_amount:
@@ -28,13 +30,13 @@ Art_production
  belongs_to
   Art_ref
 
- Dimensions
+ Dimension
   width:
   height:
  has_many
   locations:
 
-------------- Will Require Authentication ---------------
+----------- Will Require Authentication -----------------
 Sales_reps
   name:
  belongs_to
@@ -49,7 +51,7 @@ Clients
  has_many
   Art_production
 
------------------------------------
+----------- Later Date -----------------------------------
 
 Decoration_type
   code:
