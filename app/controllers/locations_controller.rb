@@ -11,10 +11,18 @@ class LocationsController < ApplicationController
     json_response(@location)
   end
 
+  def create
+    @location = Location.create!(location_params)
+    json_response(@location, :created)
+  end
+
   private
 
   def set_location
     @location = Location.find(params[:id])
   end
 
+  def location_params
+    params.permit(:name, :location_code)
+  end
 end
