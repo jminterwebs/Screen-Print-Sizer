@@ -7,7 +7,6 @@ describe Location, type: :model do
 
   describe "Assications" do
     it {should have_many(:garments).through(:garmentsLocation)}
-
     it {should belong_to :dimension}
   end
 
