@@ -59,6 +59,22 @@ RSpec.describe "Locations", type: :request do
         expect(json['name']).to eq("Full Chest")
         expect(json['location_code']).to eq("FC")
       end
+
+      it 'returns status code 201' do
+        expect(response).to have_http_status(201)
+      end
+    end
+
+    context 'when request id invalid' do
+      before {post '/locations', params: {name: 'invalid locations'}}
+
+      it 'returns status code 422' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'returns a validation faliure message' do
+        expect(response.body).to match(/Validation failed: Location code can't be blank/)
+      end
     end
   end
 
