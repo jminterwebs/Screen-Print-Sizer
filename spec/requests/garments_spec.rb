@@ -47,7 +47,7 @@ RSpec.describe "Garments", type: :request do
     end
   end
 
-  #POST tests
+  #POST tests for /garments
   describe 'POST /garments' do
     let(:valid_attributes) {{name: 'Hoodie', style_code: '135'}}
 
