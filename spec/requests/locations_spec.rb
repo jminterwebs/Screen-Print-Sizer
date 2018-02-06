@@ -78,4 +78,30 @@ RSpec.describe "Locations", type: :request do
     end
   end
 
+  #PUT test for /locations/:id
+  describe 'PUT /garments/:id' do
+    let(:valid_attributes) {{name: 'Full Back'}}
+
+    context 'when record exists' do
+      before {put "/locations/#{location_id}", params: valid_attributes}
+
+      it 'updates the record' do
+        expect(response.body).to be_empty
+      end
+
+      it 'teturns status code 204' do
+        expect(response).to have_http_status(204)
+      end
+    end
+  end
+
+  describe 'DELETE /locations/:id' do
+    before {delete "/locations/#{location_id}"}
+
+    it 'returns status code 204' do
+      expect(response).to have_http_status(204)
+    end
+  end
+
+
 end

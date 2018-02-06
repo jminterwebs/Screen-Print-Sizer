@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_action :set_location, only: [:show]
+  before_action :set_location, only: [:show, :update, :destroy]
 
   def index
     @locations = Location.all
@@ -14,6 +14,16 @@ class LocationsController < ApplicationController
   def create
     @location = Location.create!(location_params)
     json_response(@location, :created)
+  end
+
+  # PATCH/PUT /locations/1
+  def update
+    @location.update(location_params)
+  end
+
+  # DELETE /locations/1
+  def destroy
+    @location.destroy
   end
 
   private
