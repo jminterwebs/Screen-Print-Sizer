@@ -7,11 +7,9 @@ RSpec.describe GarmentsController, type: :routing do
       expect(:get => "/garments").to route_to("garments#index")
     end
 
-
     it "routes to #show" do
       expect(:get => "/garments/1").to route_to("garments#show", :id => "1")
     end
-
 
     it "routes to #create" do
       expect(:post => "/garments").to route_to("garments#create")
