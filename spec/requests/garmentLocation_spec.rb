@@ -66,8 +66,20 @@ RSpec.describe "Garment Locations", type: :request do
   #Tests for PUT /garments/:garment_id/locations/:id
   describe "PUT /garments/:garment_id/locations/:id" do
     let(:valid_attributes) {{name: "FULL BACK"}}
-    before { put "/garments/#{garment_id}/locations/#{id}"}
+    before { put "/garments/#{garment_id}/locations/#{id}", params: valid_attributes}
 
+    context "when location exists" do
+
+      it "returns status 200" do
+          expect(response).to have_http_status(204)
+      end
+
+      it 'updates the location' do
+        updated_location = Location.find(id)
+        expect(updated_location.name).to match(/FULL BACK/)
+      end
+
+    end
 
 
   end
