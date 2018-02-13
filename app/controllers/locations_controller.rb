@@ -29,13 +29,17 @@ class LocationsController < ApplicationController
 
   # DELETE /locations/1
   def destroy
-    @location.destroy
+    if params[:garment_id]
+      @garment.locations.delete(@location.id)
+    else
+      @location.destroy
+    end
   end
 
   private
 
   def set_garment
-    
+
     if params[:garment_id]
         @garment = Garment.find(params[:garment_id])
     end
