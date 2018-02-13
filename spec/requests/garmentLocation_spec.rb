@@ -19,6 +19,21 @@ RSpec.describe "Garment Locations", type: :request do
       end
     end
 
+    context "when Garment does not exist" do
+      let(:garment_id) {0}
+
+      it "returns a status 404" do
+        expect(response).to have_http_status(404)
+      end
+
+      it "resturns a not gound messag" do
+        expect(response.body).to match(/Couldn't find Garment/)
+      end
+
+
+    end
+
+
 
 
   end
