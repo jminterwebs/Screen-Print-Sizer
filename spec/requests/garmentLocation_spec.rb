@@ -42,6 +42,10 @@ RSpec.describe "Garment Locations", type: :request do
           expect(response).to have_http_status(200)
         end
 
+        it 'retruns the location id' do
+          expect(json['id']).to eq(id)
+        end
+
       end
 
 
