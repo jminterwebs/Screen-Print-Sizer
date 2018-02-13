@@ -10,7 +10,7 @@ RSpec.describe "Garment Locations", type: :request do
     before { get "/garments/#{garment_id}/locations"}
 
     context "when Location exists" do
-      it 'resturns a status 200' do
+      it 'returns a status 200' do
         expect(response).to have_http_status(200)
       end
 
