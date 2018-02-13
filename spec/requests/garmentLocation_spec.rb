@@ -78,11 +78,46 @@ RSpec.describe "Garment Locations", type: :request do
         updated_location = Location.find(id)
         expect(updated_location.name).to match(/FULL BACK/)
       end
+    end
+
+    context "when location does not exsist" do
+      let(:id) { 0 }
+
+      it "returns status 404" do
+        expect(response).to have_http_status(404)
+      end
+
+      it "retirns not found message" do
+        expect(response.body).to match(/Couldn't find Location/)
+      end
+    end
+  end
+
+  describe "Removes Location from  /garments/:garment_id/locations/:id" do
+    before { delete "/garments/#{garment_id}/locations/#{id}"}
+
+    context "Location is removed" do
+      it 'returns status 204' do
+        expect(response).to have_http_status(204)
+      end
+    end
+
+    context "Location is still there" do
+      before {get "/locations/#{id}"}
+
+      it "returns one location" do
+        expect(json).to_not be_empty
+        expect(json['id']).to eq(id)
+      end
+
+
 
     end
 
 
   end
+
+
 
 
 end
