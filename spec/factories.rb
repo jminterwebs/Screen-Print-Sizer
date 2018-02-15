@@ -1,5 +1,6 @@
 
 FactoryBot.define do
+  
 
   factory :garment do
     name "Classic Tee Shirt"
@@ -17,4 +18,12 @@ FactoryBot.define do
       end
     end
   end
+
+  factory :user do
+    name { Faker::Name.name }
+    email 'foo@bar.com'
+    password 'foobar'
+  end
+
+
 end
